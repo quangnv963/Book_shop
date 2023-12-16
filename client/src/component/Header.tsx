@@ -1,6 +1,6 @@
 import React from 'react';
 import  { useState } from 'react';
-import logo from '../assets/logo.jpg'
+import logo from '../assets/logobook.jpg'
 import menu from '../assets/icons8-menu.svg'
 import close from '../assets/icons8-x-48.png'
 
@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header>
       <div className={scrollBar ? 'z-[10] fixed w-full bg-[white] px-[20px] md:px-[30px] xl:px-[50px] 2xl:px-[100px] top-[0] nav flex justify-between items-center h-[120px]' : 'nav flex justify-between mx-[20px] md:mx-[30px] xl:mx-[50px] 2xl:mx-[100px] py-1 mt-[10px] xl:mt-[20px] items-center h-[90px]'}>
-        <div className="logo w-[50px] sm:w-[70px] lg:w-[100px]">
+        <div className="logo w-[50px] sm:w-[70px] lg:w-[100px] xl:w-[210px]">
           <a href="/"><img className='w-full' src={logo} alt="" /></a>
         </div>
         <div className="menu">
@@ -35,7 +35,7 @@ const Header = () => {
             <img onClick={()=>{setNavBar(false)}} className="absolute hover:cursor-pointer top-[1px] right-[1px]" src={close} alt="" />       
           </ul>
           <ul className="hidden xl:flex  text-[#4A4A4A] font-sans xl:text-[16px] 2xl:text-[24px]">
-            <li className="xl:px-6 2xl:px-8 hover:cursor-pointer hover:text-[#007bff]"><a href="/about">About OPM</a></li>
+            <li className="xl:px-6 2xl:px-8 hover:cursor-pointer hover:text-[#007bff]"><a href="/about">About</a></li>
             <li className="xl:px-6 2xl:px-8 hover:cursor-pointer hover:text-[#007bff]"><a href="">Product</a></li>
             <li className="xl:px-6 2xl:px-8 hover:cursor-pointer hover:text-[#007bff]"><a href="">Language</a></li>       
           </ul>

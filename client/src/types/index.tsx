@@ -2,7 +2,9 @@ export interface IProduct {
     _id:number;
     name:string;
     img: string;
+    price:number;
     desc:string;
+    categoryID?:string
 }
 
 export interface IUsers {
@@ -10,13 +12,6 @@ export interface IUsers {
     name:string;
     password:string;
     _id:number;
-    role:"admin" |"member"
+    role:"admin" |"member" | "saller"
 }
 
-export interface INews {
-    _id:number;
-    title:string;
-    content:string;
-    img:string;
-    date:string
-}

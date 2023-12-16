@@ -1,18 +1,17 @@
-import Header from '../component/Header';
-import Slider from '../component/slider';
-import { IProducts } from '../types';
-import { INews } from '../types';
-import Content from '../component/contentPage';
-import Footer from '../component/footer';
-const Home = ({data, dataN}:{ data:IProducts[], dataN:INews[]}) => {
-  return (
-    <div>
-        <Header/>
+
+
+import HomeProduct from '../component/Homeconten'
+import React from 'react'
+import Slider from '../component/slider'
+
+
+type Props = {}
+
+const HomePage = (props: Props) => {
+    return <div>
         <Slider/>
-        <Content data={data} dataN={dataN} />
-        <Footer/>
-    </div>
-  );
+        <HomeProduct />
+        </div>
 }
 
-export default Home;
+export default HomePage

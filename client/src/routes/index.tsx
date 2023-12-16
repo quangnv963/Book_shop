@@ -1,12 +1,12 @@
 import React from "react"
 import AdminLayout from "../layouts/AdminLayout"
 import ClientLayout from "../layouts/Clientlayout"
-import AboutPage from "@/pages/AboutPage"
-import HomePage from "@/pages/HomePage"
-import ProductPage from "@/pages/ProductPage"
-import ManagerDashBoardPage from "@/pages/manager/dashboard/ManagerDashBoardPage"
-import ManagerProductPage from "@/pages/manager/product/ManagerProductPage"
-import ManagerUserPage from "@/pages/manager/user/ManagerUserPage"
+import AboutPage from "../page/AboutPage"
+import HomePage from "../page/Home"
+import ProductPage from "../component/ProductPage"
+import ManagerDashBoardPage from "../page/manager/ManagerDashBoardPage"
+import ManagerProductPage from "../page/manager/ManagerProductPage"
+import ManagerUserPage from "../page/manager/ManagerUserPage"
 import { Route, Routes } from "react-router-dom"
 
 const Routers = () => {
