@@ -9,7 +9,6 @@ type Props = {}
 
 const HomePage = (props: Props) => {
     return <div>
-        <Slider/>
         <HomeProduct />
         </div>
 }

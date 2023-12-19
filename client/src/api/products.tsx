@@ -3,9 +3,13 @@ import instance from "./instance";
 import { AxiosResponse } from 'axios'
 
 
-export const getAll = async () => {
+export const getAll = async (pages?:any) => {
     try {
-        const response: AxiosResponse<IProduct[]> = await instance.get('/products')
+        const response: AxiosResponse<IProduct[]> = await instance.get('/products',{
+            params:{
+                page:pages
+            }
+        })
         return response.data || []
     } catch (error) {
         console.log('FETCH_PRODUCTS_ERROR', error)

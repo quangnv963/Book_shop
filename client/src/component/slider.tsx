@@ -5,20 +5,20 @@ import { RxDotFilled } from 'react-icons/rx';
 function Slider() {
   const slides = [
     {
-      url: 'https://149502452.v2.pressablecdn.com/wp-content/uploads/2021/05/the-best-startup-books.jpg',
+      url: 'https://www.shutterstock.com/shutterstock/photos/1790872166/display_1500/stock-vector-promo-sale-banner-for-library-bookshop-and-bookstore-a-large-number-of-books-stacked-in-piles-1790872166.jpg',
     },
-    {
-      url: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    },
-    {
-      url: 'https://img.freepik.com/free-vector/flat-social-media-cover-template-world-book-day-celebration_23-2150201450.jpg',
-    },
-
     {
       url: 'https://www.shutterstock.com/image-vector/poster-banner-design-library-bookstore-260nw-1522828046.jpg',
     },
     {
-      url: 'https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2018_29/2504731/180720-read-book-good-health-ac-417p.jpg',
+      url: 'https://bookshop-uk-prod-images.storage.googleapis.com/spree/affiliate_profiles/banner_images/5130/original/Opera_Snapshot_2020-12-16_164540_www.architecture.com.jpg?1608137853',
+    },
+
+    {
+      url: 'https://static.vecteezy.com/system/resources/previews/023/107/446/non_2x/promo-sale-banner-with-reading-stack-of-books-wooden-letter-tiles-school-books-pile-world-book-day-bookstore-bookshop-library-book-lover-bibliophile-education-a4-for-poster-cover-vector.jpg',
+    },
+    {
+      url: 'https://static.vecteezy.com/system/resources/previews/021/916/222/non_2x/promo-sale-banner-with-electronic-ebook-reader-stack-of-books-bow-plant-world-book-day-book-heap-bookstore-bookshop-library-book-lover-bibliophile-education-for-poster-cover-vector.jpg',
     },
   ];
 
@@ -46,24 +46,32 @@ function Slider() {
 
   
   return (
-    <div className='z-[1] relative xl:py-5 h-[150px] md:h-[300px] lg:h-[400px] xl:h-[600px] 2xl:h-[750px] w-full m-auto py-2 md:py-4 px-1 md:px-3 xl:px-6 group'>
-      <div
-        style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className='w-full h-full bg-center bg-cover duration-500'
-      ></div>
-  
-      <div className='flex justify-center py-1 absolute top-[90%] w-[150px] right-[30%] md:right-[40%] 2xl:right-[48%] lg:top-[92%] translate-x-0 translate-y-[-50%]  text-2xl rounded-full p-2 text-white cursor-pointer'>
-        {slides.map((slide, slideIndex) => (
-          <div
-            key={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
-            className='text-2xl cursor-pointer'
-            
-          >
-            <p className='hidden'>{slide.url}</p>
-           <RxDotFilled />
-          </div>
-        ))}
+    <div className='bg-white rounded-xl p-4'>
+        <div><p className='text-[#474747] text-[26px]'>Nhà Sách Book49</p></div>
+          <div className='z-[1] relative xl:py-2 h-[150px] md:h-[230px] lg:h-[270px] xl:h-[310px] 2xl:h-[350px] w-[100%] m-auto py-2 px-1 group'>
+        <div
+          style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+          className='w-full h-full rounded-xl bg-center bg-cover duration-500'
+        ></div>
+    
+        <div className='flex justify-center py-1 absolute top-[90%] w-[150px] right-[30%] md:right-[40%] 2xl:right-[48%] lg:top-[92%] translate-x-0 translate-y-[-50%]  text-2xl rounded-full p-2 text-white cursor-pointer'>
+          {slides.map((slide, slideIndex) => (
+            <div
+              key={slideIndex}
+              onClick={() => goToSlide(slideIndex)}
+              className='text-2xl cursor-pointer'
+              
+            >
+              <p className='hidden'>{slide.url}</p>
+            <RxDotFilled />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className='flex'>
+        <p className='p-2 text-[20px] font-light text-[#474747]'>Hàng mới nhất</p>
+        <p className='p-2 text-[20px] font-light text-[#474747]'>Giá từ thấp đến cao</p>
+        <p className='p-2 text-[20px] font-light text-[#474747]'>Giá từ cao đến thấp</p>
       </div>
     </div>
   );

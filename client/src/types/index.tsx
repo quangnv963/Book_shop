@@ -7,6 +7,12 @@ export interface IProduct {
     categoryID?:string
 }
 
+export interface ICate {
+    _id:number;
+    name:string;
+    slug: string;
+}
+
 export interface IUsers {
     email:string;
     name:string;
