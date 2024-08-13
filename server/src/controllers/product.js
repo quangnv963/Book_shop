@@ -22,6 +22,18 @@ export const getAll = async (req, res) => {
     }
         res.end()
      }
+export const getCount = async (req, res) => {
+    try {
+        const movie = await Product.find()
+        res.send({count:movie.length})
+    } catch (err) {
+        res.status(500).send({
+            message: "Cố lỗi xảy ra"
+        })
+    }
+    res.end()
+}
+
 export const get = async (req, res) => {
     const { id } = req.params
     try {

@@ -12,6 +12,14 @@ export const getAll = async (pages?:any) => {
         })
         return response.data || []
     } catch (error) {
+        return false
+    }
+}
+export const getCount = async () => {
+    try {
+        const response = await instance.get('/products/count')
+        return response.data.count || []
+    } catch (error) {
         console.log('FETCH_PRODUCTS_ERROR', error)
     }
 }

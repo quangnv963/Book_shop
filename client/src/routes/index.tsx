@@ -8,21 +8,24 @@ import ManagerDashBoardPage from "../page/manager/ManagerDashBoardPage"
 import ManagerProductPage from "../page/manager/ManagerProductPage"
 import ManagerUserPage from "../page/manager/ManagerUserPage"
 import { Route, Routes } from "react-router-dom"
+import HomeProduct from "../component/Homeconten"
+import { ShopCartProvider } from "../context/ShopCartContext"
 
 const Routers = () => {
   return (
-    <Routes>
-        <Route path='/' element={<ClientLayout/>}>
-``          <Route index element={<HomePage/>}/>
-``          <Route path='products' element={<ProductPage/>}/>
-``          <Route path="about" element={<AboutPage/>}/>
-        </Route>
-        <Route path='/admin' element={<AdminLayout/>}>
-``          <Route index element={<ManagerDashBoardPage/>}/>
-``          <Route path='products' element={<ManagerProductPage/>}/>
-``          <Route path="users" element={<ManagerUserPage/>}/>
-        </Route>
-    </Routes>
+    <ShopCartProvider>
+        <Routes>
+            <Route path='/' element={<ClientLayout/>}>
+              <Route path="" element={<HomeProduct/>}/>
+              <Route path="/home" element={<HomePage/>}/>
+            </Route>
+            <Route path='/admin' element={<AdminLayout/>}>
+              <Route index element={<ManagerDashBoardPage/>}/>
+              <Route path='products' element={<ManagerProductPage/>}/>
+              <Route path="users" element={<ManagerUserPage/>}/>
+            </Route>
+        </Routes>
+    </ShopCartProvider>
   )
 }
 

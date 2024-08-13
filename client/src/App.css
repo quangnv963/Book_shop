@@ -1,6 +1,19 @@
 body{
   background-color: #F2F0F0 ;
 }
+.skeleton{
+  opacity: .7;
+  animation: skeleton-load 1s linear infinite alternate;
+}
+
+@keyframes skeleton-load{
+  0%{
+    background-color: hsl(200, 20%, 70%);
+  }
+  100%{
+      background-color: hsl(200, 20%, 95%);
+  }
+}
 .parent{
     width: 100%;
     height: 300px;
@@ -45,4 +58,18 @@ body{
   .fade {
     animation-name: fadeIn;
     animation-duration: 0.5s;
+  }
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-slide-in {
+    animation: slide-in 0.5s ease-out;
   }
