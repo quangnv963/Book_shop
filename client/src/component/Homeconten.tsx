@@ -24,7 +24,7 @@ const HomeProduct = (props: Props) => {
     const { isLoading:isCld, isError:isCe, data:cateData } = useCateQuery()
     const modifiedCateData = cateData as ICate[] | undefined;
     const { data:countData } = useProductCount()
-    const {increaseItemQuantity, decreaseItemQuantity, getItemQuantity, removeFromCart} =useShopCart()
+    const {increaseItemQuantity, decreaseItemQuantity, getItemQuantity, removeFromCart,SetcartPrice} =useShopCart()
     const quantity = getItemQuantity
     const datafix = (countData:number) =>{
         let arr:number[] = []
@@ -72,13 +72,22 @@ const HomeProduct = (props: Props) => {
                   duration: 1000,
                   easing: 'ease-in-out',
                 }
-              )
-             
-              
-                
+              )      
         }
         
     }
+    const handleIncreaseQuantity = (id: string) => {
+        increaseItemQuantity(id);
+        // Ensure productData is an array before using find
+        if (Array.isArray(productData)) {
+            const product = productData.find((item) => item._id === id);  // Find the specific product
+    
+            if (product) {
+                SetcartPrice((prevPrice: number) => prevPrice + product.price);  // Update cart price
+            }
+        }
+    };
+    
     if (isPld) return <Skeleton/>
     
     if (productData == false || productData == true) {
@@ -122,7 +131,7 @@ const HomeProduct = (props: Props) => {
                                     <div className='flex absolute top-[90%]'>
                                         <p className='text-left'>{item?.price}đ</p>
                                         <div onClick={() => flyImage(index)}>
-                                            <div onClick={() =>increaseItemQuantity(item?._id)} className='cart-btn flex absolute left-[90px] bg-blue-500 px-9 rounded-lg opacity-60 hover:opacity-90'>
+                                            <div onClick={() =>handleIncreaseQuantity(item?._id)} className='cart-btn flex absolute left-[90px] bg-blue-500 px-9 rounded-lg opacity-60 hover:opacity-90'>
                                                 <button>Thêm</button>
                                                 <img className='w-[30px]' src={cart} alt="" />
                                             </div>

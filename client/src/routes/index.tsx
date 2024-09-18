@@ -10,6 +10,7 @@ import ManagerUserPage from "../page/manager/ManagerUserPage"
 import { Route, Routes } from "react-router-dom"
 import HomeProduct from "../component/Homeconten"
 import { ShopCartProvider } from "../context/ShopCartContext"
+import OrderPage from "../component/Order"
 
 const Routers = () => {
   return (
@@ -18,6 +19,7 @@ const Routers = () => {
             <Route path='/' element={<ClientLayout/>}>
               <Route path="" element={<HomeProduct/>}/>
               <Route path="/home" element={<HomePage/>}/>
+              <Route path="/order" element={<OrderPage/>}/>
             </Route>
             <Route path='/admin' element={<AdminLayout/>}>
               <Route index element={<ManagerDashBoardPage/>}/>

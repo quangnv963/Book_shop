@@ -30,7 +30,7 @@ const Cart = () => {
           )
         })}
       </div>
-      <p>{cartPrice}</p>
+      <p>Tổng số tiền:{cartPrice}</p>
     </div>
   )
 }
