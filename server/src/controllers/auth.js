@@ -2,8 +2,12 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/user";
 import { signInSchema, signupSchema } from "../schemas/auth";
+import { OAuth2Client } from "google-auth-library"
 
 // define validation schema using yup
+const Client_ID = '143388628636-taki68o077r48hlvvtviosc84fd2qu45.apps.googleusercontent.com';
+
+const client = new OAuth2Client(Client_ID);
 
 export const signup = async (req, res) => {
     try {
@@ -50,6 +54,33 @@ export const signup = async (req, res) => {
                 email: user.email,
             },
         });
+    } catch (error) {
+        return res.status(400).json({ message: error.message });
+    }
+};
+export const signGoogle = async (req, res) => {
+    try {
+        const { token } = req.body;
+        console.log(token)
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: Client_ID,
+        });
+        const payload = ticket.getPayload();
+
+        const { sub, email, name, picture } = payload;
+        const userExists = await User.findOne({ email });
+        if (!userExists) {
+            const user = await User.create({
+                name,
+                email,
+                picture
+            });
+        }
+        
+        console.log('Google User:', { sub, email, name, picture });
+
+        res.status(200).json({ message: 'Login successful', user: { email, name, picture } });
     } catch (error) {
         return res.status(400).json({ message: error.message });
     }

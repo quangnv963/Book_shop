@@ -6,12 +6,13 @@ import menu from '../assets/icons8-menu.svg'
 import close from '../assets/icons8-x-48.png'
 import { Link } from 'react-router-dom';
 import { useShopCart } from '../context/ShopCartContext';
+import { useLogin } from '../context/LoginContext';
 
 
 const Header = () => {
   const [navBar, setNavBar] = useState(false)  
   const {cartQuantity} =useShopCart()
-  
+  const {openLogin, closeLogin} = useLogin()  
  const {openCart} = useShopCart()
   return (
     <header>
@@ -24,14 +25,14 @@ const Header = () => {
             <img onClick={()=>{setNavBar(!navBar)}} className='w-full hover:cursor-pointer' src={menu} alt="" />
           </div>
           <ul id='navmobile' className={navBar ? 'z-[2] block absolute top-[0px] right-[0px] bg-[#007bff] w-full h-[400px] text-center xl:hidden' : 'hidden'}>
-            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><Link to="/home">Trang chủ</Link> </li>
+            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><Link to="/">Trang chủ</Link> </li>
             <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href="">Sản phẩm</a></li>
             <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href="">Tài khoản</a></li>
             <img onClick={()=>{setNavBar(false)}} className="absolute hover:cursor-pointer top-[1px] right-[1px]" src={close} alt="" />       
           </ul>
           <ul className="hidden xl:flex  text-[#4A4A4A] font-sans xl:text-[16px] 2xl:text-[24px]">
             <li className="xl:px-6 2xl:px-8 hover:cursor-pointer hover:text-[#007bff]"><Link to="/home">Trang chủ</Link></li>
-            <li className="xl:px-6 2xl:px-8 hover:cursor-pointer hover:text-[#007bff]"><a href="">Tài khoản</a></li>
+            <li onClick={openLogin} className="xl:px-6 2xl:px-8 hover:cursor-pointer hover:text-[#007bff]"><Link to='/'>Tài khoản</Link></li>
             <li className="xl:px-6 2xl:px-8 hover:cursor-pointer hover:text-[#007bff]"><div className='relative'>
               <img onClick={openCart} className='w-[50px]' src={cart} />
               <p className='absolute top-[26px] left-7 bg-[red] px-[11px] pt-1 rounded-[50%] text-white text-[19px] w-[35px]'>{cartQuantity}</p></div></li>       

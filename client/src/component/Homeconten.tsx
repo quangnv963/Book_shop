@@ -9,6 +9,8 @@ import Skeleton from './skeleton'
 import { useEffect } from 'react'
 import cart from '../assets/trolley.png'
 import { useShopCart } from '../context/ShopCartContext'
+import GoogleLogin from 'react-google-login'
+import LoginGoogle from './LoginGoogle'
 
 type Props = {}
 

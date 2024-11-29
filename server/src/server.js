@@ -3,6 +3,7 @@ import fs from 'fs'
 import bodyParser from 'body-parser'
 import productRouter from './routes/product'
 import categoriRouter from './routes/category'
+import authRouter from './routes/auth'
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import mongoose from 'mongoose'
@@ -33,6 +34,7 @@ app.get('/', function (req, res) {
 // Router
 app.use("/api/", productRouter)
 app.use("/api/", categoriRouter)
+app.use("/api/", authRouter)
 
 mongoose.connect("mongodb+srv://test:cuong123456@companycv.rr6odbl.mongodb.net/book")
     .then(() => console.log("Connect to DB Alat successfully"))

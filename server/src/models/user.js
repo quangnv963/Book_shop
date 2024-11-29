@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { type } from "os";
 
 const { Schema } = mongoose
 
@@ -13,8 +14,9 @@ const userSchema = new Schema(
         },
         password: {
             type: String,
-            required: true,
-
+        },
+        picture: {
+            type: String
         },
         role: {
             type: String,
